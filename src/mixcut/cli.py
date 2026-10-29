@@ -16,6 +16,9 @@ def parser() -> argparse.ArgumentParser:
         "action",
         choices=[
             "schema",
+            "delivery-prepare",
+            "delivery-status",
+            "delivery-publish",
             "build-packet",
             "submit",
             "publish",
@@ -173,8 +176,41 @@ def execute(args) -> dict:
             if args.action == "schema":
                 from .title_style import FIELDS as TITLE_FIELDS
                 from .director_runner import FIELDS as RUN_FIELDS
+                from .delivery_package import FIELDS as DELIVERY_FIELDS
 
-                return Workbench(w).ensure_schema({**FIELDS, **TITLE_FIELDS, **RUN_FIELDS})
+                return Workbench(w).ensure_schema(
+                    {**FIELDS, **TITLE_FIELDS, **RUN_FIELDS, **DELIVERY_FIELDS}
+                )
+            if args.action == "delivery-prepare" and args.task and args.file:
+                from .delivery_package import prepare
+                from .director_backend import cli_status
+                from .director_runner import check_live, pull_authority
+
+                pull_authority(w, args.task)
+                director, script = check_live(w, args.task, Workbench(w))
+                candidate = cli_status(w, args.task).get("candidate")
+                if not candidate:
+                    raise Blocked("DELIVERY_VIDEO", "请先完成并通过技术检查的视频候选", 3)
+                return prepare(
+                    w,
+                    args.task,
+                    candidate,
+                    director["packet_sha256"],
+                    script["content_sha256"],
+                    load(args.file),
+                )
+            if args.action == "delivery-publish" and args.task:
+                from .delivery_package import publish as publish_delivery
+
+                if (w / "config/director_authority.local.json").is_file():
+                    from .delivery_remote import publish_remote
+
+                    return publish_remote(w, args.task)
+                return publish_delivery(w, args.task, Workbench(w))
+            if args.action == "delivery-status" and args.task:
+                from .delivery_package import verify
+
+                return verify(w, args.task)
             if args.action == "run" and args.task:
                 from .director_backend import choose_backend
 

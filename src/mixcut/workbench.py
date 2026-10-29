@@ -107,6 +107,39 @@ def verified_cli_delivery(root, task, director, fields):
         return False
 
 
+def delivery_view(root, task, fields):
+    """Do not show approval when the files or Feishu packet have changed."""
+    if not fields.get("delivery_manifest"):
+        return None
+    try:
+        from .delivery_package import COVERS, verify, verify_video_attachment
+
+        record = verify(root, task)
+        content = record["content"]
+        manifest = json.loads(fields["delivery_manifest"])
+        sha = record["package_sha256"]
+        if manifest.get("package_sha256") != sha or fields.get("delivery_copy") != json.dumps(
+            content["copy"], ensure_ascii=False, sort_keys=True
+        ):
+            return "stale"
+        if verify_video_attachment(root, task, content["video"], fields) != manifest.get(
+            "video_token"
+        ):
+            return "stale"
+        for name in COVERS:
+            attached = fields.get("delivery_cover_" + name) or []
+            if len(attached) != 1 or attached[0].get("file_token") != manifest.get(
+                "covers", {}
+            ).get(name):
+                return "stale"
+        status = fields.get("delivery_review_status")
+        if status in ("approved", "rejected") and fields.get("delivery_review_hash") != sha:
+            return "stale"
+        return status if status in ("pending", "approved", "rejected") else "stale"
+    except (Blocked, OSError, ValueError, KeyError, TypeError):
+        return "stale"
+
+
 def task_status(f):
     review = scalar(f.get("script_review_status"))
     stage = f.get("stage") or ""
@@ -862,6 +895,9 @@ class Workbench:
                         fixedRunStatus=task_fields.get("director_run_status"),
                         fixedRunPreview=task_fields.get("director_run_preview"),
                         candidateAttached=bool(task_fields.get("candidate_preview")),
+                        deliveryManifest=task_fields.get("delivery_manifest"),
+                        deliveryCopy=task_fields.get("delivery_copy"),
+                        deliveryReviewStatus=delivery_view(self.root, task["id"], task_fields),
                         directorPreview=director_preview(director, script)
                         if director and script
                         else None,
@@ -1499,6 +1535,21 @@ def create_server(root: Path, port: int, *, embedded: bool = False):
                 with writer_lock(root, wait_seconds=20):
                     if self.path == "/api/projects":
                         result = app.create_project(body)
+                    elif self.path.startswith("/api/delivery/"):
+                        from .delivery_package import review
+
+                        task_id = self.path.rsplit("/", 1)[-1]
+                        if not body.get("confirmed"):
+                            raise Blocked("DELIVERY_REVIEW", "请先确认审核操作", 2)
+                        result = review(
+                            root,
+                            task_id,
+                            body.get("package_sha256", ""),
+                            body.get("action", ""),
+                            app,
+                            app.auth_user(),
+                            body.get("reason", ""),
+                        )
                     elif self.path.startswith("/api/segments/"):
                         result = app.segment_action(self.path.rsplit("/", 1)[-1], body)
                     elif self.path.startswith("/api/materials/"):

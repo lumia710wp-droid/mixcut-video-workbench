@@ -520,6 +520,14 @@ def run(root, task, config, bench):
         state["candidate"] = {"path": str(output), "sha256": candidate["sha256"]}
         if qc["status"] != "passed" or qc.get("warnings"):
             raise Blocked("CLI_QC", "技术检查含失败或告警", 6)
+        requirement = root / "jobs/delivery_packages" / task / "required.json"
+        if not requirement.exists():
+            atomic_write(
+                requirement,
+                {"task_id": task, "candidate_sha256": candidate["sha256"], "created_at": now()},
+            )
+        elif load(requirement).get("candidate_sha256") != candidate["sha256"]:
+            raise Blocked("DELIVERY_REQUIRED_CONFLICT", "已有不同的整包验收任务，请先对账", 6)
         state["status"] = "awaiting_content_review"
         state["current_step"] = "content_review"
     except Blocked as error:

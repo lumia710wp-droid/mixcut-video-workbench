@@ -14,6 +14,8 @@ from .director_stage import latest
 def record_chat_approval(root: Path, task: str, candidate_sha256: str, message: str) -> dict:
     """Record an explicit user's chat approval for one exact candidate."""
     task = safe_id(task)
+    if (root / "jobs/delivery_packages" / task / "required.json").is_file():
+        raise Blocked("DELIVERY_REVIEW_REQUIRED", "此任务需在飞书整体验收视频、封面和文案", 3)
     status = cli_status(root, task)
     candidate = status.get("candidate")
     if not candidate or candidate.get("sha256") != candidate_sha256:
@@ -130,13 +132,29 @@ def sync_cli_archive(root: Path, task: str) -> dict:
     manifest_path = job / "archive_manifest.json"
     atomic_write(manifest_path, manifest)
     try:
-        result = subprocess.run([sys.executable, str(root / "tools/publish_cli_archives.py"),
-                                 "--manifest", str(manifest_path.relative_to(root)), "--phase", "sync", "--caller-holds-lock"],
-                                cwd=root, capture_output=True, text=True, timeout=180)
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(root / "tools/publish_cli_archives.py"),
+                "--manifest",
+                str(manifest_path.relative_to(root)),
+                "--phase",
+                "sync",
+                "--caller-holds-lock",
+            ],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
     except (OSError, subprocess.TimeoutExpired) as error:
         raise Blocked("CLI_ARCHIVE_SYNC_PENDING", "归档同步结果未知，先对账", 6) from error
     if result.returncode:
         raise Blocked("CLI_ARCHIVE_SYNC_PENDING", "归档回填未确认，请先对账", 6)
-    receipt = {"task_id": task, "status": "verified", "candidate_sha256": archived["candidate_sha256"]}
+    receipt = {
+        "task_id": task,
+        "status": "verified",
+        "candidate_sha256": archived["candidate_sha256"],
+    }
     atomic_write(job / "archive_sync_receipt.json", receipt)
     return receipt

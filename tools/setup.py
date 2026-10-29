@@ -18,6 +18,7 @@ from mixcut.workbench import GROUP_FIELDS  # noqa: E402
 from mixcut.title_style import FIELDS as TITLE_FIELDS  # noqa: E402
 from mixcut.director_stage import FIELDS as DIRECTOR_FIELDS  # noqa: E402
 from mixcut.director_runner import FIELDS as RUN_FIELDS  # noqa: E402
+from mixcut.delivery_package import FIELDS as DELIVERY_FIELDS  # noqa: E402
 
 
 def full_schema(root):
@@ -28,6 +29,7 @@ def full_schema(root):
         **TITLE_FIELDS,
         **DIRECTOR_FIELDS,
         **RUN_FIELDS,
+        **DELIVERY_FIELDS,
     }.items():
         if key in task["labels"]:
             if task["labels"][key] != label:
