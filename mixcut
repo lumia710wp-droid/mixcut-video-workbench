@@ -1,0 +1,4 @@
+#!/bin/sh
+# Project-only interpreter and module path; preserves all global configuration.
+HERE=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PYTHONPATH="$HERE/src" exec "$HERE/.venv/bin/python" -m mixcut --workspace "$HERE" "$@"

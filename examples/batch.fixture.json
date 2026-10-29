@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "batch",
+  "is_fixture": true,
+  "batch_id": "TEST_BATCH_001",
+  "brand_id": "TEST_BRAND",
+  "goods_id": "TEST_GOODS",
+  "task_count": 1,
+  "task_ids": [
+    "TEST_TASK_001"
+  ],
+  "target_min_frames": 660,
+  "target_max_frames": 840,
+  "snapshot_sha256": "083d4fe5d774f7ce027f8fec219cbf1b719188af8a43df640388ac043aee20fc",
+  "seed": 7,
+  "audio_mode": "music_only"
+}

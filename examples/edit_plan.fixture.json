@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "edit_plan",
+  "is_fixture": true,
+  "task_id": "TEST_TASK_001",
+  "batch_id": "TEST_BATCH_001",
+  "brand_id": "TEST_BRAND",
+  "goods_id": "TEST_GOODS",
+  "script_revision": 1,
+  "script_sha256": "778b90543e8743b05ce45ae19a52ea00378ca1d20316fcef34d846fb8f0d3166",
+  "product_revision": 1,
+  "taxonomy_version": "fixture-taxonomy-1",
+  "snapshot_sha256": "083d4fe5d774f7ce027f8fec219cbf1b719188af8a43df640388ac043aee20fc",
+  "audio_mode": "music_only",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps_num": 30,
+    "fps_den": 1
+  },
+  "total_frames": 720,
+  "style_sha256": "0694f6783a28fd0ff6aa6ed0bb5a0681632efbc79c412c05b98f2a6563783e98",
+  "media": [
+    {
+      "media_id": "M001",
+      "source_id": "S001",
+      "source_sha256": "e3267ee307963f5f2ad079e449918408769cf1fc3864baea45010865e6c52d53",
+      "working_sha256": "e3267ee307963f5f2ad079e449918408769cf1fc3864baea45010865e6c52d53",
+      "root_id": "fixture_originals",
+      "relative_path": "A.mp4",
+      "total_frames": 300,
+      "fps_num": 30,
+      "fps_den": 1,
+      "time_mapping": "identity_cfr"
+    },
+    {
+      "media_id": "M002",
+      "source_id": "S002",
+      "source_sha256": "a0116bd73f34ac3071311691385a6ed08b4550f51b4087c015baa9df8881ce8c",
+      "working_sha256": "a0116bd73f34ac3071311691385a6ed08b4550f51b4087c015baa9df8881ce8c",
+      "root_id": "fixture_originals",
+      "relative_path": "B.mp4",
+      "total_frames": 300,
+      "fps_num": 30,
+      "fps_den": 1,
+      "time_mapping": "identity_cfr"
+    },
+    {
+      "media_id": "M003",
+      "source_id": "S003",
+      "source_sha256": "90a29709fad22ec72f4491d0d71488cbdcfd5d04ee06b3bc6219e17ec05fdf1d",
+      "working_sha256": "90a29709fad22ec72f4491d0d71488cbdcfd5d04ee06b3bc6219e17ec05fdf1d",
+      "root_id": "fixture_originals",
+      "relative_path": "C.mp4",
+      "total_frames": 300,
+      "fps_num": 30,
+      "fps_den": 1,
+      "time_mapping": "identity_cfr"
+    },
+    {
+      "media_id": "M004",
+      "source_id": "S004",
+      "source_sha256": "e5f3774c67b82d4ae1c2d21f2d203fa993474611b11d63a8eb5af7a6cda989c8",
+      "working_sha256": "e5f3774c67b82d4ae1c2d21f2d203fa993474611b11d63a8eb5af7a6cda989c8",
+      "root_id": "fixture_originals",
+      "relative_path": "D.mp4",
+      "total_frames": 300,
+      "fps_num": 30,
+      "fps_den": 1,
+      "time_mapping": "identity_cfr"
+    },
+    {
+      "media_id": "M005",
+      "source_id": "S005",
+      "source_sha256": "b9d3ffe869eea1ecf65019e604c852d481286adfbc5c99d88dbf61d19d896cb0",
+      "working_sha256": "b9d3ffe869eea1ecf65019e604c852d481286adfbc5c99d88dbf61d19d896cb0",
+      "root_id": "fixture_originals",
+      "relative_path": "E.mp4",
+      "total_frames": 300,
+      "fps_num": 30,
+      "fps_den": 1,
+      "time_mapping": "identity_cfr"
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "SHOT_1",
+      "clip_id": "C001",
+      "clip_revision": 1,
+      "media_id": "M001",
+      "source_in_frame": 60,
+      "source_out_frame": 180,
+      "timeline_start_frame": 0,
+      "duration_frames": 120,
+      "source_audio_gain": 0,
+      "speed": 1,
+      "fit_mode": "contain",
+      "crop": null,
+      "selection_reason": "合成夹具：标签及连续区间恰好满足，非生产选材结果"
+    },
+    {
+      "shot_id": "SHOT_2",
+      "clip_id": "C002",
+      "clip_revision": 1,
+      "media_id": "M002",
+      "source_in_frame": 30,
+      "source_out_frame": 180,
+      "timeline_start_frame": 120,
+      "duration_frames": 150,
+      "source_audio_gain": 0,
+      "speed": 1,
+      "fit_mode": "contain",
+      "crop": null,
+      "selection_reason": "合成夹具：标签及连续区间恰好满足，非生产选材结果"
+    },
+    {
+      "shot_id": "SHOT_3",
+      "clip_id": "C003",
+      "clip_revision": 1,
+      "media_id": "M003",
+      "source_in_frame": 90,
+      "source_out_frame": 270,
+      "timeline_start_frame": 270,
+      "duration_frames": 180,
+      "source_audio_gain": 0,
+      "speed": 1,
+      "fit_mode": "contain",
+      "crop": null,
+      "selection_reason": "合成夹具：标签及连续区间恰好满足，非生产选材结果"
+    },
+    {
+      "shot_id": "SHOT_4",
+      "clip_id": "C004",
+      "clip_revision": 1,
+      "media_id": "M004",
+      "source_in_frame": 0,
+      "source_out_frame": 150,
+      "timeline_start_frame": 450,
+      "duration_frames": 150,
+      "source_audio_gain": 0,
+      "speed": 1,
+      "fit_mode": "contain",
+      "crop": null,
+      "selection_reason": "合成夹具：标签及连续区间恰好满足，非生产选材结果"
+    },
+    {
+      "shot_id": "SHOT_5",
+      "clip_id": "C005",
+      "clip_revision": 1,
+      "media_id": "M005",
+      "source_in_frame": 60,
+      "source_out_frame": 180,
+      "timeline_start_frame": 600,
+      "duration_frames": 120,
+      "source_audio_gain": 0,
+      "speed": 1,
+      "fit_mode": "contain",
+      "crop": null,
+      "selection_reason": "合成夹具：标签及连续区间恰好满足，非生产选材结果"
+    }
+  ],
+  "captions": [
+    {
+      "shot_id": "SHOT_1",
+      "start_frame": 0,
+      "end_frame": 120,
+      "text": "测试镜头 A"
+    },
+    {
+      "shot_id": "SHOT_2",
+      "start_frame": 120,
+      "end_frame": 270,
+      "text": "测试镜头 B"
+    },
+    {
+      "shot_id": "SHOT_3",
+      "start_frame": 270,
+      "end_frame": 450,
+      "text": "测试镜头 C"
+    },
+    {
+      "shot_id": "SHOT_4",
+      "start_frame": 450,
+      "end_frame": 600,
+      "text": "测试镜头 D"
+    },
+    {
+      "shot_id": "SHOT_5",
+      "start_frame": 600,
+      "end_frame": 720,
+      "text": "测试镜头 E"
+    }
+  ],
+  "audio_tracks": [],
+  "plan_sha256": "a849855efbb867ff5e18a31bff75c6095e1c952f8d94735077adde7c0e815578",
+  "build_id": "b_a849855efbb867ff"
+}

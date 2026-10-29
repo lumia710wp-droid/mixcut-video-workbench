@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex 脚本选材编导"
+  short_description: "由 Codex 复用入库标记按脚本检索选材，疑点按需补查并规划剪辑"
+  default_prompt: "使用 $video-script-material-director，复用已完成的素材事实标记按脚本检索选材，标签不足时再补查，输出镜头匹配和可执行剪辑计划。"

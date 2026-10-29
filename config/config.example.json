@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "workspace_root": "SET_LOCAL_WORKSPACE",
+  "source_roots": [],
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps_num": 30,
+    "fps_den": 1,
+    "min_frames": 660,
+    "max_frames": 840,
+    "fit_mode": "contain"
+  },
+  "run": {
+    "concurrency": 1,
+    "automatic_task_retries": 0,
+    "watch_enabled": false,
+    "dry_run": true
+  },
+  "ingest": {
+    "initial_file_limit": 50,
+    "stable_samples": 3,
+    "stable_interval_sec": 2,
+    "follow_symlinks": false,
+    "normalize_only_selected": true
+  },
+  "cloud": {
+    "cloud_analysis_enabled": false,
+    "send_scope": "approved_frames_only",
+    "max_remote_calls": 0,
+    "max_frames_per_source": 12,
+    "budget_currency": "CNY",
+    "budget_limit": null,
+    "rate_card_path": null
+  },
+  "vision": {
+    "provider": "unconfigured",
+    "model": null,
+    "region": null,
+    "endpoint": null,
+    "api_key_env": "MIXCUT_VISION_API_KEY"
+  },
+  "text": {
+    "mode": "explicit_single_task_api",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "endpoint": "https://api.deepseek.com/responses",
+    "config_path": "config/deepseek.local.json",
+    "api_key_env": "DEEPSEEK_API_KEY"
+  },
+  "audio": {
+    "default_mode": "tts_uniform",
+    "provider": "unconfigured",
+    "voice": null,
+    "max_tail_padding_frames": 12,
+    "bgm_path": null
+  },
+  "feishu": {
+    "enabled": false,
+    "app_id_env": "MIXCUT_FEISHU_APP_ID",
+    "app_secret_env": "MIXCUT_FEISHU_APP_SECRET",
+    "base_app_token": null,
+    "clips_table_id": null,
+    "tasks_table_id": null,
+    "schema_writes_enabled": false
+  },
+  "openchatcut": {
+    "mode": "discover_existing",
+    "cli_argv_prefix": null,
+    "data_dir": null,
+    "mcp_server_name": "openchatcut",
+    "mcp_token_env": "OPENCHATCUT_MCP_TOKEN",
+    "capabilities_file": "reports/capabilities.json"
+  },
+  "matching": {
+    "same_clip_max_per_video": 1,
+    "disallow_overlapping_source_ranges": true,
+    "seed": 7,
+    "blocking_risks": [
+      "old_price",
+      "uncertain_product"
+    ],
+    "max_backtrack_nodes": 10000
+  },
+  "paths": {
+    "ffmpeg": "discover",
+    "ffprobe": "discover",
+    "font_file": null,
+    "taxonomy": "config/taxonomy.json",
+    "goods_dir": "config/goods"
+  },
+  "security": {
+    "allow_fixture_in_production": false,
+    "redact_secrets": true,
+    "allow_original_writes": false,
+    "allow_public_uploads": false
+  }
+}

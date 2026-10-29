@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "job_status",
+  "is_fixture": true,
+  "task_id": "TEST_TASK_001",
+  "script_revision": 1,
+  "build_id": "b_a849855efbb867ff",
+  "stage": "ready",
+  "render_status": "not_started",
+  "qc_status": "not_checked",
+  "human_review": "pending",
+  "sync_status": "not_required",
+  "attempt": 0,
+  "candidate_path": null,
+  "final_path": null,
+  "error_code": null,
+  "evidence_paths": []
+}

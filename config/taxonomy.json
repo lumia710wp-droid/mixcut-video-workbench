@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "taxonomy",
+  "is_fixture": false,
+  "version": "taxonomy-1.0",
+  "axes": {
+    "content": [
+      {
+        "id": "cross_section",
+        "label": "切面"
+      },
+      {
+        "id": "whole_product",
+        "label": "产品整体"
+      },
+      {
+        "id": "usage",
+        "label": "使用过程"
+      },
+      {
+        "id": "detail",
+        "label": "产品细节"
+      },
+      {
+        "id": "package",
+        "label": "包装"
+      }
+    ],
+    "action": [
+      {
+        "id": "show",
+        "label": "展示"
+      },
+      {
+        "id": "use",
+        "label": "使用"
+      }
+    ],
+    "shot_size": [
+      {
+        "id": "closeup",
+        "label": "特写"
+      },
+      {
+        "id": "medium",
+        "label": "中景"
+      }
+    ],
+    "risk": [
+      {
+        "id": "old_price",
+        "label": "旧价格"
+      },
+      {
+        "id": "uncertain_product",
+        "label": "商品不确定"
+      },
+      {
+        "id": "blurred",
+        "label": "模糊"
+      },
+      {
+        "id": "existing_subtitles",
+        "label": "已有字幕"
+      }
+    ]
+  },
+  "blocking_risks": [
+    "old_price",
+    "uncertain_product"
+  ]
+}

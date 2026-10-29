@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mixcut.invalid/schemas/script.schema.json",
+  "title": "script",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "entity": {
+      "const": "script"
+    },
+    "is_fixture": {
+      "type": "boolean"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brand_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goods_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "product_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taxonomy_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audio_mode": {
+      "enum": [
+        "tts_uniform",
+        "provided_voice",
+        "music_only"
+      ]
+    },
+    "fps_num": {
+      "const": 30
+    },
+    "fps_den": {
+      "const": 1
+    },
+    "total_min_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "total_max_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_tags": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "action": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "shot_size": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "risk": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "content",
+              "action",
+              "shot_size",
+              "risk"
+            ],
+            "additionalProperties": false
+          },
+          "preferred_tags": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "action": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "shot_size": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "risk": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "content",
+              "action",
+              "shot_size",
+              "risk"
+            ],
+            "additionalProperties": false
+          },
+          "forbidden_tags": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "action": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "shot_size": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "risk": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "content",
+              "action",
+              "shot_size",
+              "risk"
+            ],
+            "additionalProperties": false
+          },
+          "must_keep_action_complete": {
+            "type": "boolean"
+          },
+          "timing": {
+            "type": "object",
+            "properties": {
+              "min_frames": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "target_frames": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "max_frames": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "min_frames",
+              "target_frames",
+              "max_frames"
+            ],
+            "additionalProperties": false
+          },
+          "narration": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "shot_id",
+          "role",
+          "required_tags",
+          "preferred_tags",
+          "forbidden_tags",
+          "must_keep_action_complete",
+          "timing",
+          "narration",
+          "caption",
+          "claim_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 4,
+      "maxItems": 6
+    },
+    "review_status": {
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "stale"
+      ]
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "approval": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "actor_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "channel": {
+              "enum": [
+                "feishu",
+                "local_manual",
+                "fixture"
+              ]
+            },
+            "approved_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "approved_content_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "actor_id",
+            "channel",
+            "approved_at",
+            "approved_content_sha256"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "entity",
+    "is_fixture",
+    "task_id",
+    "batch_id",
+    "brand_id",
+    "goods_id",
+    "revision",
+    "product_revision",
+    "template_id",
+    "variant_id",
+    "taxonomy_version",
+    "audio_mode",
+    "fps_num",
+    "fps_den",
+    "total_min_frames",
+    "total_max_frames",
+    "shots",
+    "review_status",
+    "content_sha256",
+    "approval"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "review_status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "review_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "approval": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
+}

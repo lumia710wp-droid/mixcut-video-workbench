@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "script",
+  "is_fixture": true,
+  "task_id": "TEST_TASK_001",
+  "batch_id": "TEST_BATCH_001",
+  "brand_id": "TEST_BRAND",
+  "goods_id": "TEST_GOODS",
+  "revision": 1,
+  "product_revision": 1,
+  "template_id": "fixture-5-shots",
+  "variant_id": "A",
+  "taxonomy_version": "fixture-taxonomy-1",
+  "audio_mode": "music_only",
+  "fps_num": 30,
+  "fps_den": 1,
+  "total_min_frames": 660,
+  "total_max_frames": 840,
+  "shots": [
+    {
+      "shot_id": "SHOT_1",
+      "role": "cross_section",
+      "required_tags": {
+        "content": [
+          "cross_section"
+        ],
+        "action": [],
+        "shot_size": [],
+        "risk": []
+      },
+      "preferred_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [
+          "closeup"
+        ],
+        "risk": []
+      },
+      "forbidden_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [],
+        "risk": [
+          "old_price",
+          "uncertain_product"
+        ]
+      },
+      "must_keep_action_complete": false,
+      "timing": {
+        "min_frames": 120,
+        "target_frames": 120,
+        "max_frames": 120
+      },
+      "narration": "",
+      "caption": "测试镜头 A",
+      "claim_ids": []
+    },
+    {
+      "shot_id": "SHOT_2",
+      "role": "whole_product",
+      "required_tags": {
+        "content": [
+          "whole_product"
+        ],
+        "action": [],
+        "shot_size": [],
+        "risk": []
+      },
+      "preferred_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [
+          "closeup"
+        ],
+        "risk": []
+      },
+      "forbidden_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [],
+        "risk": [
+          "old_price",
+          "uncertain_product"
+        ]
+      },
+      "must_keep_action_complete": false,
+      "timing": {
+        "min_frames": 150,
+        "target_frames": 150,
+        "max_frames": 150
+      },
+      "narration": "",
+      "caption": "测试镜头 B",
+      "claim_ids": []
+    },
+    {
+      "shot_id": "SHOT_3",
+      "role": "usage",
+      "required_tags": {
+        "content": [
+          "usage"
+        ],
+        "action": [],
+        "shot_size": [],
+        "risk": []
+      },
+      "preferred_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [
+          "closeup"
+        ],
+        "risk": []
+      },
+      "forbidden_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [],
+        "risk": [
+          "old_price",
+          "uncertain_product"
+        ]
+      },
+      "must_keep_action_complete": false,
+      "timing": {
+        "min_frames": 180,
+        "target_frames": 180,
+        "max_frames": 180
+      },
+      "narration": "",
+      "caption": "测试镜头 C",
+      "claim_ids": []
+    },
+    {
+      "shot_id": "SHOT_4",
+      "role": "detail",
+      "required_tags": {
+        "content": [
+          "detail"
+        ],
+        "action": [],
+        "shot_size": [],
+        "risk": []
+      },
+      "preferred_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [
+          "closeup"
+        ],
+        "risk": []
+      },
+      "forbidden_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [],
+        "risk": [
+          "old_price",
+          "uncertain_product"
+        ]
+      },
+      "must_keep_action_complete": false,
+      "timing": {
+        "min_frames": 150,
+        "target_frames": 150,
+        "max_frames": 150
+      },
+      "narration": "",
+      "caption": "测试镜头 D",
+      "claim_ids": []
+    },
+    {
+      "shot_id": "SHOT_5",
+      "role": "package",
+      "required_tags": {
+        "content": [
+          "package"
+        ],
+        "action": [],
+        "shot_size": [],
+        "risk": []
+      },
+      "preferred_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [
+          "closeup"
+        ],
+        "risk": []
+      },
+      "forbidden_tags": {
+        "content": [],
+        "action": [],
+        "shot_size": [],
+        "risk": [
+          "old_price",
+          "uncertain_product"
+        ]
+      },
+      "must_keep_action_complete": false,
+      "timing": {
+        "min_frames": 120,
+        "target_frames": 120,
+        "max_frames": 120
+      },
+      "narration": "",
+      "caption": "测试镜头 E",
+      "claim_ids": []
+    }
+  ],
+  "review_status": "approved",
+  "content_sha256": "778b90543e8743b05ce45ae19a52ea00378ca1d20316fcef34d846fb8f0d3166",
+  "approval": {
+    "actor_id": "fixture-reviewer-not-a-real-user",
+    "channel": "fixture",
+    "approved_at": "2026-10-13T00:00:00Z",
+    "approved_content_sha256": "778b90543e8743b05ce45ae19a52ea00378ca1d20316fcef34d846fb8f0d3166"
+  }
+}

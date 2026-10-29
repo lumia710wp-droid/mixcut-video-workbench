@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mixcut-local"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["jsonschema==4.26.0"]
+[project.scripts]
+mixcut = "mixcut.cli:main"
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.setuptools.package-data]
+mixcut = ["executable_v3_schema.json"]

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mixcut.invalid/schemas/source.schema.json",
+  "title": "source",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "entity": {
+      "const": "source"
+    },
+    "is_fixture": {
+      "type": "boolean"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relative_path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "root_id",
+          "relative_path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "duration_sec": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fps_num": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fps_den": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "rotation_deg": {
+      "enum": [
+        0,
+        90,
+        180,
+        270
+      ]
+    },
+    "vfr_status": {
+      "enum": [
+        "yes",
+        "no",
+        "unknown"
+      ]
+    },
+    "has_audio": {
+      "type": "boolean"
+    },
+    "probe_status": {
+      "enum": [
+        "ok",
+        "quarantined"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "entity",
+    "is_fixture",
+    "source_id",
+    "file_sha256",
+    "locations",
+    "duration_sec",
+    "width",
+    "height",
+    "fps_num",
+    "fps_den",
+    "rotation_deg",
+    "vfr_status",
+    "has_audio",
+    "probe_status"
+  ],
+  "additionalProperties": false
+}

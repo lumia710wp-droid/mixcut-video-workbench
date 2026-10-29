@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mixcut.invalid/schemas/job_status.schema.json",
+  "title": "job_status",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "entity": {
+      "const": "job_status"
+    },
+    "is_fixture": {
+      "type": "boolean"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "script_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "build_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "enum": [
+        "draft",
+        "waiting_script_review",
+        "preparing_audio",
+        "matching",
+        "ready",
+        "editing",
+        "timeline_verified",
+        "rendering",
+        "checking",
+        "waiting_final_review",
+        "delivered",
+        "blocked",
+        "failed",
+        "needs_reconcile"
+      ]
+    },
+    "render_status": {
+      "enum": [
+        "not_started",
+        "running",
+        "succeeded",
+        "failed",
+        "unknown"
+      ]
+    },
+    "qc_status": {
+      "enum": [
+        "not_checked",
+        "passed",
+        "failed",
+        "needs_review"
+      ]
+    },
+    "human_review": {
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "stale"
+      ]
+    },
+    "sync_status": {
+      "enum": [
+        "not_required",
+        "pending",
+        "synced",
+        "failed",
+        "conflict",
+        "unknown"
+      ]
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_path": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "final_path": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "entity",
+    "is_fixture",
+    "task_id",
+    "script_revision",
+    "build_id",
+    "stage",
+    "render_status",
+    "qc_status",
+    "human_review",
+    "sync_status",
+    "attempt",
+    "candidate_path",
+    "final_path",
+    "error_code",
+    "evidence_paths"
+  ],
+  "additionalProperties": false
+}

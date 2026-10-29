@@ -1,0 +1,94 @@
+{
+  "code": "const Component = ({ item }) => {\n const frame = useCurrentFrame();\n const p = item.props;\n const rows = JSON.parse(p.captionJson);\n let active = null;\n for (const row of rows) { if (frame >= row.start && frame < row.end) active = row; }\n const rootStyle = { position: \"absolute\", inset: 0, backgroundColor: p.transparentBackground ? \"transparent\" : p.ink, fontFamily: p.fontFamily, pointerEvents: \"none\" };\n const headerStyle = { position: \"absolute\", top: 108, left: 48, right: 48, display: \"flex\", flexDirection: \"column\", alignItems: \"center\", gap: 8 };\n const specs = [{text:p.hook,size:60,color:p.yellow,stroke:p.blue},{text:p.product,size:76,color:p.blue,stroke:p.cream},{text:p.sellingPoint,size:61,color:p.red,stroke:p.white},{text:p.taste,size:63,color:p.cream,stroke:p.red}];\n const headerLines = specs.map((s,n) => { const style = { fontSize:s.size, fontWeight:900, lineHeight:1.15, textAlign:\"center\", maxWidth:984, whiteSpace:\"normal\", overflowWrap:\"break-word\", color:s.color, WebkitTextStroke:\"4px \" + s.stroke, paintOrder:\"stroke fill\", textShadow:\"1px 2px 0 \" + p.ink }; return <div key={n} style={style}>{s.text}</div>; });\n const captionStyle = { position:\"absolute\", bottom:280, left:58, right:58, textAlign:\"center\", fontSize:p.captionSize, fontWeight:800, lineHeight:1.24, color:p.white, WebkitTextStroke:\"3px \" + p.ink, paintOrder:\"stroke fill\", textShadow:\"0px 2px 2px rgba(0,0,0,0.45)\", whiteSpace:\"normal\", overflowWrap:\"break-word\" };\n const text = active ? active.text : \"\";\n const parts = text.split(/(鲜果|水果|团购|尝鲜)/g);\n const captionParts = parts.map((part,n) => { const keyWord = [\"鲜果\",\"水果\",\"团购\",\"尝鲜\"].includes(part); const style = {color:keyWord ? p.yellow : p.white}; return <span key={n} style={style}>{part}</span>; });\n return <div style={rootStyle}><div style={headerStyle}>{headerLines}</div><div style={captionStyle}>{captionParts}</div></div>;\n};",
+  "description": "已确认V3.1排版；由固定程序填充本任务标题与字级字幕。",
+  "durationInFrames": 300,
+  "height": 1920,
+  "name": "director_typography_v1",
+  "properties": [
+    {
+      "defaultValue": "上海宝子尝鲜",
+      "key": "hook",
+      "label": "hook",
+      "type": "text"
+    },
+    {
+      "defaultValue": "示例品牌芒果",
+      "key": "product",
+      "label": "product",
+      "type": "text"
+    },
+    {
+      "defaultValue": "新鲜现做团购",
+      "key": "sellingPoint",
+      "label": "sellingPoint",
+      "type": "text"
+    },
+    {
+      "defaultValue": "果香软糯",
+      "key": "taste",
+      "label": "taste",
+      "type": "text"
+    },
+    {
+      "defaultValue": "[{\"text\": \"上海的宝子们有口福啦\", \"start\": 6, \"end\": 62}, {\"text\": \"示例品牌鲜果糯米糍\", \"start\": 62, \"end\": 103}, {\"text\": \"多种水果新鲜现做\", \"start\": 103, \"end\": 147}, {\"text\": \"团购更划算\", \"start\": 147, \"end\": 183}, {\"text\": \"果香软糯一口满足\", \"start\": 183, \"end\": 229}, {\"text\": \"快来尝鲜\", \"start\": 229, \"end\": 300}]",
+      "key": "captionJson",
+      "label": "captionJson",
+      "type": "text"
+    },
+    {
+      "defaultValue": "Noto Sans SC",
+      "key": "fontFamily",
+      "label": "fontFamily",
+      "type": "font"
+    },
+    {
+      "defaultValue": "#FFDF2E",
+      "key": "yellow",
+      "label": "yellow",
+      "type": "color"
+    },
+    {
+      "defaultValue": "#1E4CAE",
+      "key": "blue",
+      "label": "blue",
+      "type": "color"
+    },
+    {
+      "defaultValue": "#E82A23",
+      "key": "red",
+      "label": "red",
+      "type": "color"
+    },
+    {
+      "defaultValue": "#FFF5BC",
+      "key": "cream",
+      "label": "cream",
+      "type": "color"
+    },
+    {
+      "defaultValue": "#FFFFFF",
+      "key": "white",
+      "label": "white",
+      "type": "color"
+    },
+    {
+      "defaultValue": "#20221C",
+      "key": "ink",
+      "label": "ink",
+      "type": "color"
+    },
+    {
+      "defaultValue": 72,
+      "key": "captionSize",
+      "label": "captionSize",
+      "type": "number"
+    },
+    {
+      "defaultValue": true,
+      "key": "transparentBackground",
+      "label": "transparentBackground",
+      "type": "boolean"
+    }
+  ],
+  "width": 1080
+}

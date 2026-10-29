@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "confirmed_date": "2026-10-28",
+  "scope": "codex_director_editing_stage",
+  "selection": "round_robin_per_video",
+  "voices": [
+    {
+      "name": "甜美悦悦2.0",
+      "speaker": "zh_female_tianmeiyueyue_uranus_bigtts"
+    },
+    {
+      "name": "清澈梓梓2.0",
+      "speaker": "zh_female_qingchezizi_uranus_bigtts"
+    },
+    {
+      "name": "亲切女声2.0",
+      "speaker": "zh_female_qinqienv_uranus_bigtts"
+    },
+    {
+      "name": "阳光青年2.0",
+      "speaker": "zh_male_yangguangqingnian_uranus_bigtts"
+    }
+  ],
+  "speech_rate": 8,
+  "same_voice_for_entire_video": true,
+  "assignment_rule": "按新批次的视频顺序依次使用甜美悦悦2.0、清澈梓梓2.0、亲切女声2.0、阳光青年2.0，超过4条继续循环；在剪辑任务中先保存每条speaker，恢复任务复用该选择。",
+  "delivery_rule": "Codex在剪辑阶段读取此配置，将所选speaker作为当次TTS请求音色；沿用原稿，实测配音后同步字幕。",
+  "execution_owner": "Codex",
+  "legacy_v3_auto_voice_pool_enabled": false,
+  "user_instruction": "可以，就这四个轮换吧",
+  "timing_policy": {
+    "minimum_voice_ratio": 0.85,
+    "maximum_voice_ratio": 0.95,
+    "voice_start_frame": 6,
+    "automatic_text_rewrite": false
+  },
+  "execution_integration": "director.prepare-audio"
+}

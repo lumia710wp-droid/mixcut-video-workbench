@@ -1,0 +1,21 @@
+#!/bin/sh
+# Explicitly configured official-source CLI adapter; no desktop app is bundled.
+set -eu
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+OCC_CLI=${MIXCUT_OCC_CLI:-"$ROOT/runtime/openchatcut/cli-dist/occ.mjs"}
+if [ ! -f "$OCC_CLI" ]; then
+  printf '%s\n' '未找到 OpenChatCut CLI；请先阅读 docs/SETUP.md 并构建 CLI 适配器。' >&2
+  exit 1
+fi
+export MIXCUT_CLI_PLUGIN_DIR="$ROOT/jobs/cli_title_templates"
+if [ "$(uname -s)" = Darwin ]; then
+  USERDATA=${MIXCUT_OPENCHATCUT_USERDATA:-"$HOME/Library/Application Support/OpenChatCut"}
+  if [ -d "$USERDATA" ]; then
+    cd "$USERDATA"
+    [ -d "$USERDATA/remotion-bundle-0.2.16" ] && export CC_REMOTION_BUNDLE="${CC_REMOTION_BUNDLE:-$USERDATA/remotion-bundle-0.2.16}"
+    [ -d "$USERDATA/remotion-binaries-0.2.16" ] && export CC_REMOTION_BINARIES_DIR="${CC_REMOTION_BINARIES_DIR:-$USERDATA/remotion-binaries-0.2.16}"
+    BROWSER='/Applications/OpenChatCut.app/Contents/Resources/chrome-headless-shell/mac-arm64/chrome-headless-shell-mac-arm64/chrome-headless-shell'
+    [ -f "$BROWSER" ] && export CC_BROWSER_EXECUTABLE="${CC_BROWSER_EXECUTABLE:-$BROWSER}"
+  fi
+fi
+exec "${MIXCUT_NODE:-node}" "$OCC_CLI" "$@"

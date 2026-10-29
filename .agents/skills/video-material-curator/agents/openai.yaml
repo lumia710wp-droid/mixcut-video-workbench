@@ -1,0 +1,6 @@
+interface:
+  display_name: "视频素材入库与视觉整理"
+  short_description: "只读盘点视频、全片时间轴事实标记、商品核对和证据交接"
+  default_prompt: "使用 $video-material-curator 整理当前项目已授权的视频素材，先读取检查点，实际查看完整时间轴采样，标记内容、动作点与客观质量；选材和剪辑由脚本决定，再按版本审核交接。"
+policy:
+  allow_implicit_invocation: true

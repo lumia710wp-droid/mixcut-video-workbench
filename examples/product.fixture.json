@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "entity": "product",
+  "is_fixture": true,
+  "brand_id": "TEST_BRAND",
+  "goods_id": "TEST_GOODS",
+  "revision": 1,
+  "name": "仅用于软件测试的虚构商品A",
+  "claims": [
+    {
+      "claim_id": "TEST001",
+      "allowed_text": "测试商品展示",
+      "evidence_note": "软件测试占位，不是真实商业事实，不得用于生产",
+      "valid_until": null
+    }
+  ],
+  "forbidden_phrases": [
+    "测试用：禁止使用任何真实功效或价格断言"
+  ],
+  "review_status": "approved",
+  "content_sha256": "e2ec6833dd7125c683ee2e9eb3fc40b8c1749397549ddf04a36dacdae5587e58",
+  "approval": {
+    "actor_id": "fixture-reviewer-not-a-real-user",
+    "channel": "fixture",
+    "approved_at": "2026-10-13T00:00:00Z",
+    "approved_content_sha256": "e2ec6833dd7125c683ee2e9eb3fc40b8c1749397549ddf04a36dacdae5587e58"
+  }
+}

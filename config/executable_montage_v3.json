@@ -1,0 +1,29 @@
+{
+  "enabled": true,
+  "minimum_unique": 0.7,
+  "speed": 1.1,
+  "typography": {
+    "asset_id": "fixture-asset-id",
+    "header_font_sizes": [
+      60,
+      76,
+      61,
+      63
+    ],
+    "props": {
+      "__description": "Mixcut V3.1 approved typography; executable-script V3 instance",
+      "blue": "#1E4CAE",
+      "captionSize": 72,
+      "cream": "#FFF5BC",
+      "fontFamily": "Noto Sans SC",
+      "ink": "#20221C",
+      "red": "#E82A23",
+      "transparentBackground": true,
+      "white": "#FFFFFF",
+      "yellow": "#FFDF2E"
+    },
+    "style_sha256": "835203957148315b087edfd9368392e3889e450b1829cfbd0a8572a295f9657b",
+    "template_project_id": "fixture-project-id",
+    "version": "example-v3"
+  }
+}

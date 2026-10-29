@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "deepseek",
+  "endpoint": "https://api.deepseek.com/responses",
+  "model": "deepseek-flash",
+  "api_key_env": "DEEPSEEK_API_KEY",
+  "api_key_file": null,
+  "timeout_seconds": 60,
+  "max_output_tokens": 4096,
+  "max_input_chars": 6000,
+  "max_remote_calls_per_command": 1,
+  "automatic_retries": 0,
+  "rate_card_path": null
+}
